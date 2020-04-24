@@ -103,7 +103,7 @@ class Array
   private
   def self.merge(left, right, &prc)
     merged = []
-    while left.length > 0 || right.length > 0
+    while left.length > 0 and  right.length > 0
       first_left = left.first 
       first_right = right.first
       if prc.call(first_left,first_right) == 1
@@ -113,7 +113,10 @@ class Array
       end
     end
     
-    merged
+    merged + left + right 
 
   end
 end
+
+arr = [1,7,4,56,-4,-76,3,53,-54]
+p arr.merge_sort
