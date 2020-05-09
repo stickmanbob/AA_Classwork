@@ -1,0 +1,5 @@
+/* PUT FLUID GRID CODE HERE */
+.grid2 {
+    display: grid; 
+    grid-template: 80% 20% / 20% 80% 
+}
