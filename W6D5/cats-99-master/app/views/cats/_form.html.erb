@@ -1,0 +1,37 @@
+<form action="<%= page == :edit ? cat_url : cats_url %>" method="post">
+  <% if page == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  <label>
+    Name
+    <input type="text" name="cat[name]" value="<%= cat.name %>">
+  </label>
+  <label>
+    Sex
+    <label>Male
+      <input type="radio" name="cat[sex]" value="M" <%= "checked" if cat.sex == "M" %>>
+    </label>
+
+    <label> Female
+      <input type="radio" name="cat[sex]" value="F" <%= "checked" if cat.sex == "F" %>>
+    </label>
+  </label>
+  <label>
+    Color
+    <select name="cat[color]">
+      <option value="black" <%= "selected" if cat.color == "black" %>>Black</option>
+      <option value="orange" <%= "selected" if cat.color == "orange" %>>Orange</option>
+      <option value="white" <%= "selected" if cat.color == "white" %>>White</option>
+      <option value="brown" <%= "selected" if cat.color == "brown" %>>Brown</option>
+    </select>
+  </label>
+  <label>
+    Birth Date
+    <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+  </label>
+  <label>
+    Description
+    <textarea row="3" cols="50" name="cat[description]"><%= cat.description %></textarea>
+  </label>
+  <input type="submit"/>
+</form>

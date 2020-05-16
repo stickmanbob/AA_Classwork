@@ -1,0 +1,10 @@
+<% if page == :index %>
+  <h2><a href="<%= cat_url(cat.id) %>"> <%= cat.name %> </a></h2>
+<% else %>
+  <h1><%= cat.name %></h1>
+<% end %>
+<ul>
+  <li><%= cat.color %></li>
+  <li><%= cat.sex %></li>
+  <li><%= cat.description %></li>
+</ul>

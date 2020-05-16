@@ -1,0 +1,12 @@
+<%= render "info", cat: @cat, page: :show %>
+<h2>Pending Requests</h2>
+<ol>
+  <% @cat.rental_requests.order('cat_rental_requests.start_date').each do |request| %>
+    <li>
+      <ul>
+        <li>Start Date: <%= request.start_date %></li>
+        <li>End Date: <%= request.end_date %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>
