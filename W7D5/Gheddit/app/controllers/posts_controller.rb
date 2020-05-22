@@ -19,21 +19,21 @@ class PostsController < ApplicationController
     #############################ROUTES######################################
     
     def post_params
-        params.require(:post).permit(:title,:url,:content,:sub_id)
+        params.require(:post).permit(:title,:url,:content, sub_ids:[])
     end
 
     def new
         
-        @post = Post.new(sub_id: params[:id]) 
+        @post = Post.new
         render :new
     end
 
     def create
+        
         @post = Post.new(post_params)
         @post.author_id = current_user.id 
-        # debugger
         if @post.save
-            redirect_to sub_url(@post.sub_id)
+            redirect_to post_url(@post)
         else
             flash.now[:errors] = @post.errors.full_messages
             render :new 

@@ -2,7 +2,7 @@
 
 <form action="<%= posts_url%>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    <input type="hidden" name="post[sub_id]" value="<%=@post.sub_id%>" >
+    
     
     <label for=""> Title
         <input type="text" name="post[title]">
@@ -19,9 +19,23 @@
         <textarea name="post[content]"  cols="30" rows="10"></textarea>
     </label>
 
+    <label > Subs
+        <!---This creates a checkbox for each existing sub. Users check  --->
+        <!--- which ones they want their post to be a part of. All checked id's --->
+        <!--- compile to an array in params called post[sub_ids]--->
+
+        <% Sub.all.each do |sub| %>
+        <label > <%= sub.title %></label>
+        <input type="checkbox", name="post[sub_ids][]", value="<%= sub.id %>">
+        <% end %>
+    
+    </label>
+    
     <input type="submit" value="Create">
 
 </form>
+
+
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
