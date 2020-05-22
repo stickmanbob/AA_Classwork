@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+<h2>Author: <%= @post.author.username %></h2>
+<br>
+<a href="<%=@post.url%>"> Link </a>
+<br>
+<br>
+<p><%= @post.content %></p>
+
+<% if logged_in? && current_user.id == @post.author_id %>
+
+<a href="<%= edit_post_url(@post) %>"> Edit Post</a>
+
+<% end %>

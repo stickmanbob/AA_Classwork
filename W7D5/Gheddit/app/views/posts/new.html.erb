@@ -1,0 +1,30 @@
+<h1>New Post</h1>
+
+<form action="<%= posts_url%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="hidden" name="post[sub_id]" value="<%=@post.sub_id%>" >
+    
+    <label for=""> Title
+        <input type="text" name="post[title]">
+    </label>
+
+    <label > Link Url 
+        <input type="text" name="post[url]" >
+    </label>
+
+
+    <br>
+
+     <label > Content
+        <textarea name="post[content]"  cols="30" rows="10"></textarea>
+    </label>
+
+    <input type="submit" value="Create">
+
+</form>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <h2><%= error %></h2>
+    <% end %>
+<% end %>

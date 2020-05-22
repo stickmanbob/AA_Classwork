@@ -1,0 +1,38 @@
+<h1> <%= @user.username %> </h1>
+
+<h2> My Subs </h2>
+<form action="<%=new_sub_url%>" method="GET">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <input type="submit" value="Create New">
+    </form>
+
+<% @user.subs.each do |sub| %>
+
+    <h3> <%= sub.title  %> </h3>
+    <form action="<%=sub_url(sub)%>" method="GET">
+        <input type="submit" value="Go!">
+    </form>
+
+    <form action="<%= edit_sub_url(sub) %>" method="GET">
+           
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+            <input type="submit" value="Edit Sub">
+    </form>
+
+      <form action="<%= sub_url(sub) %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+            <input type="submit" value="Delete Sub">
+    </form>
+<% end %>
+
+<br>
+<br>
+<br>
+
+<form action="<%=user_url(@user) %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="submit" value="Delete User">
+
+</form>

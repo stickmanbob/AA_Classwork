@@ -1,0 +1,19 @@
+<h1> <%= @sub.title %> </h1>
+
+<p> <%=@sub.description%> </p>
+
+<br>
+<h2><a href="<%=new_post_url%>"> Create a Post</a></h2>
+<br>
+
+<% @sub.posts.each do |post| %>
+
+<h3><a href="<%=post_url(post)%>"><%= post.title %></a></h3>
+
+<% end %>
+
+
+<br>
+<br>
+
+

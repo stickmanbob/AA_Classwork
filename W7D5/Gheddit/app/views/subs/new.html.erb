@@ -1,0 +1,22 @@
+<h1>Create a Sub</h1>
+
+<form action="<%= subs_url%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+    <label for=""> Title
+        <input type="text" name="sub[title]">
+    </label>
+
+     <label > Description
+        <textarea name="sub[description]"  cols="30" rows="10"></textarea>
+    </label>
+
+    <input type="submit" value="Create">
+
+</form>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <h2><%= error %></h2>
+    <% end %>
+<% end %>
