@@ -1,0 +1,102 @@
+.board {
+    display: block;
+    width: 450px;
+    /* background-color: #91AEC1; */
+    margin: auto;
+    border: 3px solid black;
+    /* height: 180px; */
+    /* background: red; */
+}
+.row {
+    display: flex;
+    width: 450px;
+    /* background: blue; */
+}
+
+h1{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+.description{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: medium;
+}
+.tile {
+    font-size: 20px;
+    border: 3px outset darkgray;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgrey;
+    border-style: outset;
+}
+
+#minesweeper {
+    /* background-color: #91AEC1; */
+    margin: 0 auto;
+    width: 700px;
+    margin: 0 auto;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #F2E8CF;
+}
+
+.bombed {
+    background-color: #BC4749;
+    border-style: inset;
+}
+
+.flagged {
+    background-color: #F2E8CF;
+
+}
+
+.revealed {
+    background-color: aquamarine;
+    border-style: inset;
+}
+
+.screen{
+    position: fixed;
+    background-color: rgba(0,0, 0, 0.8);
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #605F5E;
+    z-index: 2;
+    border-radius: 6px;
+    border: solid 2px black;
+    font-size: 30px;
+    color: white;
+}
+
+.popup button{
+    font-size: 20px;
+}
