@@ -36,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 import {login, signup, logout} from './actions/session_actions';
+import { fetchBenches } from './actions/bench_actions';
 window.login = login; 
 window.logout = logout; 
 window.signup = signup; 
+
+window.fetchBenches = fetchBenches;
